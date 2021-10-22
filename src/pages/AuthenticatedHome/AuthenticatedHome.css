@@ -1,0 +1,10 @@
+.main-home {
+  position: absolute;
+  width: calc(100% - 300px);
+  min-height: 100vh;
+  top: 0;
+  left: 300px;
+  background: #fff;
+  border-radius: 1rem 0 0 1rem;
+  z-index: 1000;
+}

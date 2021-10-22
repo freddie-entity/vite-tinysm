@@ -1,23 +1,30 @@
 import React from 'react';
+import { Post } from '../../helpers/interfaces';
+import { PostImage } from './PostImage';
 import './Posts.css';
 
-export const PostItem = () => {
+interface Props {
+  key: number;
+  post: Post;
+}
+export const PostItem = ({ key, post }: Props) => {
   return (
     <div className='post-box'>
-      <img src='/post1.jpg' alt='' />
-
+      <PostImage imageList={post.images} />
       <div className='post-info'>
         <div className='post-profile'>
           <div className='post-img'>
             <img src='/profile10.jpg' alt='' />
           </div>
-          <h3>Marques B</h3>
+          <h3>{post.content}</h3>
         </div>
         <div className='likes'>
-          <i className='ri-heart-line'></i>
-          <span>84.4k</span>
+          <div>
+            <i className='ri-heart-line'></i>
+          </div>
+          <span>{post.like_count}</span>
           <i className='ri-chat-3-line'></i>
-          <span>88</span>
+          <span>{post.comment_count}</span>
         </div>
       </div>
     </div>

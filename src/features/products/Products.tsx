@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { receivedProducts } from "./productsSlice";
-import { addToCart } from "../cart/cartSlice";
-import { getProducts } from "../../app/api";
-import styles from "./Products.module.css";
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { receivedProducts } from './productsSlice';
+import { addToCart } from '../cart/cartSlice';
+import { getProducts } from '../../app/api';
+import styles from './Products.module.css';
 
 export function Products() {
   const dispatch = useAppDispatch();
@@ -14,7 +14,7 @@ export function Products() {
   }, []);
   const products = useAppSelector((state) => state.products.products);
   return (
-    <main className="page">
+    <main className='page'>
       <ul className={styles.products}>
         {Object.values(products).map((product) => (
           <li key={product.id}>

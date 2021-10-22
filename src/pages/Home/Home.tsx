@@ -5,7 +5,7 @@ import { Stories } from '../../components/Stories/Stories';
 export const Home = () => {
   return (
     <div>
-      <Stories/>
+      <Stories />
       <Posts />
     </div>
   );
