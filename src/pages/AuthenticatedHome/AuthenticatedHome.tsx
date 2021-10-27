@@ -10,7 +10,6 @@ export const AuthenticatedHome = () => {
   return (
     <>
       <Layout>
-        <SideBar />
         <Layout.Content className='layout-content'>
           <Switch>
             <Route exact path='/products' component={Products} />

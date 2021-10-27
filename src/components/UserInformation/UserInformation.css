@@ -1,0 +1,148 @@
+.user-infomation,
+.avatar,
+.avatar-img,
+.avatar-img img,
+.information {
+  position: relative;
+}
+.flex-align-justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-infomation {
+  width: 100%;
+  display: flex;
+}
+.user-infomation > .avatar {
+  box-sizing: border-box;
+  width: 40%;
+}
+.user-infomation > .avatar > .avatar-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  user-select: none;
+}
+.avatar-img img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.information {
+  box-sizing: content-box;
+}
+.information > .username {
+  display: inline-flex;
+  width: 100%;
+}
+.information > .username > button {
+  height: min-content;
+  align-self: center;
+  border-radius: 0.2rem;
+  user-select: none;
+}
+.information > .username > .un-followed,
+.information > .username > .followed {
+  padding: 0.1rem 1.8rem;
+  margin-left: auto;
+  margin-right: 10px;
+}
+.information > .username .direct-message {
+  padding: 0.1rem 1rem;
+}
+.information > .username button:focus {
+  opacity: 0.7;
+}
+.information > .username .followed,
+.information > .username .direct-message {
+  border: 1px solid grey;
+  background-color: transparent;
+}
+.information > .username .un-followed {
+  border: 0;
+  padding: 0.2rem 1.8rem !important;
+  color: #fff;
+  background-color: #0095f6;
+}
+.information > .username p {
+  font-size: var(--font_size_max_desktop);
+  margin-bottom: 0 !important;
+}
+.information > .count {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  list-style: none;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.information > .count li {
+  margin-right: 40px;
+}
+.information > .web-address a {
+  font-size: var(--font_size_medium_desktop);
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: var(--bold);
+  user-select: none;
+}
+@media only screen and (max-width: 768px) {
+  .user-infomation {
+    display: grid;
+    width: 100%;
+  }
+  .user-infomation > .avatar {
+    width: 100%;
+  }
+  .information {
+    box-sizing: border-box;
+    margin-top: 1vh;
+    width: 100%;
+  }
+  .information > .username {
+    width: inherit;
+  }
+  .information > .username > button {
+    height: min-content;
+    align-self: center;
+    border-radius: 0.2rem;
+    user-select: none;
+  }
+  .information > .username p {
+    font-size: var(--font_size_max_mobile);
+  }
+  .information > .count {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    list-style: none;
+    margin-block-start: 0.7em;
+    margin-block-end: 0.7em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  .information > .count li {
+    font-size: var(--font_size_small_mobile);
+    margin-right: 10px;
+    text-align: center;
+  }
+  .information > .web-address a {
+    font-size: var(--font_size_medium_mobile);
+  }
+}

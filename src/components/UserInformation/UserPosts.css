@@ -1,0 +1,27 @@
+/* .user-posts {
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+}
+.user-posts-row {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+} */
+.user-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .user-posts {
+    grid-gap: 5px;
+  }
+}

@@ -9,6 +9,12 @@ import { useAppDispatch } from './app/hooks';
 import { GetMe } from './features/user/userAction';
 import cookie from 'js-cookie';
 
+/////////////////FOR DEBUGGING
+import {User} from "./pages/User/User"
+
+/////////////////FOR DEBUGGING
+
+
 function App() {
   const user = useAuth();
   const dispatch = useAppDispatch();
@@ -19,6 +25,11 @@ function App() {
     <Router>
       <NavBar />
       {/* {cookie.get("token") ? <AuthenticatedHome /> : <Login />} */}
+      <Switch>
+        <Route path="/User">
+          <User />
+        </Route>
+        </Switch>
       <AuthenticatedHome />
     </Router>
   );

@@ -1,0 +1,90 @@
+:root {
+  --font_size_max_desktop: 20pt;
+  --font_size_max_mobile: 20pt;
+  --font_size_more_desktop: 14pt;
+  --font_size_more_mobile: 14pt;
+  --font_size_medium_desktop: 12pt;
+  --font_size_medium_mobile: 12pt;
+  --font_size_small_desktop: 10pt;
+  --font_size_small_mobile: 10pt;
+
+  --color-link: #00376b;
+
+  --thin: 300;
+  --bold: 500;
+}
+.pointer:hover {
+  cursor: pointer;
+}
+.user-page {
+  width: 100%;
+  justify-content: center;
+  align-items: top;
+  display: flex;
+  position: relative;
+  margin-top: 2vh;
+}
+.user-profile {
+  width: 80%;
+  position: relative;
+  box-sizing: border-box;
+}
+.user-profile .user-tabs {
+  margin-top: 3vh;
+  width: 100%;
+}
+.user-tabs-list {
+  width: 100%;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding: 1vh 0 1vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-tabs-list button {
+  font-size: var(--font_size_medium_desktop);
+  color: #444;
+  background-color: transparent;
+  border: 0;
+  padding: 15px 50px;
+  position: relative;
+  user-select: none;
+}
+.user-tabs-list button:hover {
+  opacity: 0.7;
+}
+.user-tabs-list-btn.active::before {
+  content: "";
+  margin-left: -50px;
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  background-color: black;
+  margin-top: calc(-15px - 1vh);
+}
+.user-tabs > .user-tabs-panels > .user-tabs-panel {
+  display: none;
+}
+.user-tabs > .user-tabs-panels > .user-tabs-panel.active {
+  display: block;
+}
+@media only screen and (max-width: 768px) {
+  .user-profile {
+    width: 94%;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .user-profile .user-tabs {
+    margin-top: 2vh;
+    width: 100%;
+  }
+  .user-tabs-list button {
+    font-size: var(--font_size_medium_mobile);
+    padding: 10px 30px;
+  }
+  .user-tabs-list-btn.active::before {
+    margin-left: -30px;
+    margin-top: calc(-10px - 1vh);
+  }
+}
