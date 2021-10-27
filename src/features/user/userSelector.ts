@@ -1,3 +1,9 @@
+import { createSelector } from 'reselect';
 import { RootState } from '../../app/store';
 
-export const selectCurrentUser = (state: RootState) => state.user;
+export const selectCurrentUser = createSelector(
+  (state: RootState) => state.user,
+  (user) => {
+    return user;
+  }
+);

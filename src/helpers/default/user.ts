@@ -2,7 +2,7 @@ import { User, UserState, UserToken } from '../interfaces';
 import cookie from 'js-cookie';
 
 export const userDefault: User = {
-  id: '',
+  _id: '',
   username: '',
   email: '',
   password: '',
