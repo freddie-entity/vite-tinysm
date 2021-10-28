@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.less';
 import { AnimatePresence } from 'framer-motion';
 import { AuthenticatedHome } from './pages/AuthenticatedHome/AuthenticatedHome';
@@ -13,6 +13,8 @@ import { Test } from './pages/Test/Test';
 
 /////////////////FOR DEBUGGING
 import {User} from "./pages/User/User"
+import {DirectMessage} from "./pages/DirectMessage/DirectMessage"
+
 
 /////////////////FOR DEBUGGING
 
@@ -28,17 +30,20 @@ function App() {
     <Router>
       <NavBar />
       {/* {cookie.get("token") ? <AuthenticatedHome /> : <Login />} */}
-      {/* <Switch>
-        <Route path="/User">
+      <Switch>
+        <Route path="/user">
           <User />
         </Route>
-      </Switch> */}
-
+        <Route path="/direct_message">
+          <DirectMessage />
+        </Route>
+      </Switch>
+      <AuthenticatedHome />
 
       {/* {cookie.get('token') ? <AuthenticatedHome /> : <Login />} */}
-      <AnimatePresence exitBeforeEnter>
+      {/* <AnimatePresence exitBeforeEnter>
         <AuthenticatedHome />
-      </AnimatePresence>
+      </AnimatePresence> */}
       {/* <Test /> */}
     </Router>
   );

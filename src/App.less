@@ -1,6 +1,7 @@
 @import "~antd/dist/antd.less";
 @import "~antd/lib/style/themes/default.less";
 @primary-color: #000000;
+@link-color: #000000; // link color
 
 .ant-drawer-content {
   height: 100%;
@@ -21,6 +22,22 @@
 }
 body {
   background: #f8f8f8;
+}
+body > .move-content-down {
+  padding-bottom: calc(1rem + 1rem + 1.4rem);
+  width: 100%;
+}
+a {
+  color: #000000 !important;
+  text-decoration: none;
+}
+.ant-btn:hover {
+  color: black !important;
+  border-color: black !important;
+}
+.ant-btn:focus {
+  color: black !important;
+  border-color: black !important;
 }
 
 // .content {

@@ -17,7 +17,7 @@ export const UserInformation = () =>{
                         <span id="link-name">@tech-no</span>
                     </div>
                     <button className="un-followed pointer"><span>Follow</span></button>
-                    <button className="direct-message pointer"><i className="ri-send-plane-2-line"></i></button>
+                    <button className="direct-message-btn pointer"><i className="ri-send-plane-2-line"></i></button>
                     {/* <button className="followed pointer"><span>Unfollow</span></button>
                     {followed ? 
                     <button className="un-followed pointer" onClick={follow}><span>Follow</span></button> 
@@ -25,9 +25,9 @@ export const UserInformation = () =>{
                     <button className="followed pointer" onClick={unfollow}><span>Unfollow</span></button>}} */}
                 </div>
                 <ul className="count">
-                    <li><span id="user-posts">69</span> <span>posts</span></li>
-                    <li><a href="#"><span id="user-followers">69</span> <span>followers</span></a></li>
-                    <li><a href="#"><span id="user-followings">69</span> <span>followings</span></a></li>
+                    <li><span id="user-posts">69 posts</span></li>
+                    <li><a href="#"><span id="user-followers">69 followers</span></a></li>
+                    <li><a href="#"><span id="user-followings">69 followings</span></a></li>
                 </ul>
                 <div className="bio">
                     <span id="bio">

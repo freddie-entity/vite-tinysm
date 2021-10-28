@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { LoggedIn } from './LoggedIn';
+import './NavBar.css';
+
 import { Drawer, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import './NavBar.css';
 import { Menu } from '../SideBar/Menu';
-import { LoggedIn } from './LoggedIn';
 import { Guest } from './Guest';
 
 const NavBar = () => {
@@ -11,7 +12,7 @@ const NavBar = () => {
   return (
     <nav className='navbar'>
       <div className='header'>
-        <Button
+        {/* <Button
           className='menu-ant'
           icon={<MenuOutlined />}
           onClick={() => setVisible(true)}
@@ -22,9 +23,9 @@ const NavBar = () => {
           visible={visible}
         >
           <Menu />
-        </Drawer>
+        </Drawer> */}
         <a href='/'>
-          <img src='/logo.png' className='logo' alt='logo' />
+          <img src='/new_logo.png' className='logo' alt='logo' />
         </a>
         <div className='search'>
           <i className='ri-search-line'></i>

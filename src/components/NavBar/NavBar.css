@@ -28,7 +28,12 @@
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  /* border-bottom: 0.005rem solid #dedede; */
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 7px;
 }
 
 .logo {
@@ -62,20 +67,47 @@
 }
 .header-content i {
   color: #000;
-  font-size: 20px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 .header-content .btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  border-radius: 8px;
-  background: var(--gradient);
-  margin-left: 0.5rem;
 }
 .header-content .btn i {
-  color: hsla(0, 0%, 100%, 0.6);
   margin-right: 10px;
+}
+.header-content .user-avatar {
+  text-decoration: none;
+  color: black;
+}
+.header-content .user-avatar .avatar-container {
+  position: relative;
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0 !important;
+}
+.header-content .user-avatar .avatar-container:hover {
+  border-spacing: 0.2rem;
+}
+.header-content .user-avatar .avatar-container > img {
+  width: inherit;
+  height: inherit;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.ant-dropdown-menu > li {
+  padding-right: 100px;
+}
+.ant-dropdown-menu hr {
+  border: 1px solid #eee;
+}
+.ant-dropdown-menu-title-content i {
+  padding-top: 1rem;
 }

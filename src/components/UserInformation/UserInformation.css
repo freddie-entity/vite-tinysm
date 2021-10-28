@@ -13,6 +13,7 @@
 .user-infomation {
   width: 100%;
   display: flex;
+  margin-top: 1.5vh;
 }
 .user-infomation > .avatar {
   box-sizing: border-box;
@@ -49,14 +50,14 @@
   margin-left: auto;
   margin-right: 10px;
 }
-.information > .username .direct-message {
+.information > .username .direct-message-btn {
   padding: 0.1rem 1rem;
 }
 .information > .username button:focus {
   opacity: 0.7;
 }
 .information > .username .followed,
-.information > .username .direct-message {
+.information > .username .direct-message-btn {
   border: 1px solid grey;
   background-color: transparent;
 }
@@ -91,7 +92,7 @@
 }
 .information > .web-address a {
   font-size: var(--font_size_medium_desktop);
-  color: var(--color-link);
+  color: var(--color-link) !important;
   text-decoration: none;
   font-weight: var(--bold);
   user-select: none;
@@ -100,6 +101,7 @@
   .user-infomation {
     display: grid;
     width: 100%;
+    margin-top: 0;
   }
   .user-infomation > .avatar {
     width: 100%;
