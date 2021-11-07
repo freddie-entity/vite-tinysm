@@ -30,7 +30,7 @@ const NavBar = () => {
         <div className='search'>
           <i className='ri-search-line'></i>
           <input type='text' placeholder='Search' onChange={event => handleKeyDown} />
-          <SearchList />
+          {/* <SearchList /> */}
         </div>
         <LoggedIn />
         {/* <Guest /> */}

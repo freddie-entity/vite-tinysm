@@ -1,3 +1,7 @@
+.menu-mobile {
+  position: fixed;
+  display: none;
+}
 @media (max-width: 768px) {
   .menu-mobile {
     position: fixed;
@@ -11,6 +15,7 @@
     justify-content: center;
     align-items: center;
     border-top: 1px solid #eee;
+    background-color: #fff;
   }
 }
 .menu-mobile > .menu-item {
