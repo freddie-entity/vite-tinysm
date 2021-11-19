@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 30px;
+}
+
+.left-col {
+  display: flex;
+  flex-direction: column;
+}
+.right-col {
+  padding: 20px;
+}
+
+@media (max-width: 1100px) {
+  .right-col,
+  .search-box {
+    display: none;
+  }
+  .nav-wrapper,
+  .wrapper {
+    width: 90%;
+  }
+  .wrapper {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-items .icon {
+    margin: 0 5px;
+  }
+  .post-image {
+    height: 300px;
+  }
+}

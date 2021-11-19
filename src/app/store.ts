@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from '../features/products/productsSlice';
-import cartReducer from '../features/cart/cartSlice';
 import userReducer from '../features/user/userSlice';
+import postReducer from '../features/post/postSlice';
+import commentReducer from '../features/comment/commentSlice';
+import roomReducer from '../features/room/roomSlice';
 
 export const store = configureStore({
   reducer: {
-    products: productsReducer,
-    cart: cartReducer,
     user: userReducer,
+    post: postReducer,
+    comment: commentReducer,
+    room: roomReducer,
   },
 });
 

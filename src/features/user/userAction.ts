@@ -2,10 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import cookie from 'js-cookie';
 import { RootState } from '../../app/store';
-import { userDefault } from '../../helpers/default/user';
+import { userDefault, namespace } from './default';
 import { getFormData } from '../../helpers/function';
-import { UserLoginType } from '../../helpers/interfaces';
-import { namespace } from './ns';
+import { UserLoginType } from './interface';
 const baseURL = 'http://localhost:8000';
 
 export const UserLogin = createAsyncThunk(
@@ -21,17 +20,49 @@ export const UserLogin = createAsyncThunk(
   }
 );
 
+export const GetRecommendation = createAsyncThunk(
+  `${namespace}/recommendation`,
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const state = getState() as RootState;
+      const { data } = await axios.get(
+        `${baseURL}/auth/recommendation?username=${state.user.authUser.user.username}`
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const GetMe = createAsyncThunk(
   `${namespace}/auth/me`,
-  async (_, { getState }) => {
-    const state = getState() as RootState;
+  async (_, { rejectWithValue }) => {
     const requestOptions = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + cookie.get('token'),
       },
     };
-    const { data } = await axios.get(`${baseURL}/auth/me`, requestOptions);
-    return data ? data : userDefault;
+    try {
+      const { data } = await axios.get(`${baseURL}/auth/me`, requestOptions);
+      return data ? data : userDefault;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const GetProfile = createAsyncThunk(
+  `${namespace}/user/profile`,
+  async (username: string, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `${baseURL}/auth/users?username=${username}`
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );

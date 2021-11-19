@@ -1,0 +1,107 @@
+/* *,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Georgia';
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container {
+  overflow-y: hidden;
+  background-color: #131313;
+  color: beige;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 45px;
+}
+nav .logo-container {
+  overflow-y: hidden;
+}
+nav .logo-container h1 {
+  text-transform: uppercase;
+  font-size: 15px;
+}
+nav .menu-container {
+  overflow-y: hidden;
+}
+nav .menu-container div {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+nav .menu-container div:hover {
+  cursor: pointer;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+.mobile-menu button {
+  align-self: flex-end;
+  margin: 35px 45px 0 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 13px;
+  color: white;
+}
+.mobile-menu button:hover {
+  cursor: pointer;
+}
+.mobile-menu ul {
+  list-style: none;
+  margin-top: 40px;
+}
+.mobile-menu ul li {
+  margin: 20px 0;
+  overflow-y: hidden;
+  user-select: none;
+}
+.mobile-menu ul li div {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 34px;
+}
+.mobile-menu ul li:hover {
+  font-style: italic;
+  cursor: pointer;
+}
+.mobile-menu .contact {
+  margin-top: 80px;
+  display: flex;
+}
+.mobile-menu .contact h5 {
+  font-weight: normal;
+}
+.mobile-menu .contact h5:first-of-type {
+  margin-right: 40px;
+}
+.img-container {
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+  margin-top: 50px;
+  padding: 10px 10px;
+  width: 100%;
+}
+.img-container img {
+  height: 500px;
+  width: (80%, 1000px, 90%);
+  pointer-events: none;
+} */

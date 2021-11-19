@@ -1,40 +1,21 @@
-import React, { useState } from 'react';
-import { Drawer, Button } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
 import './NavBar.css';
-import { Menu } from '../SideBar/Menu';
-import { LoggedIn } from './LoggedIn';
-import { Guest } from './Guest';
 
-const NavBar = () => {
-  const [visible, setVisible] = useState(false);
+export const NavBar = () => {
   return (
     <nav className='navbar'>
-      <div className='header'>
-        <Button
-          className='menu-ant'
-          icon={<MenuOutlined />}
-          onClick={() => setVisible(true)}
-        />
-        <Drawer
-          placement='left'
-          onClose={() => setVisible(false)}
-          visible={visible}
-        >
-          <Menu />
-        </Drawer>
-        <a href='/'>
-          <img src='/logo.png' className='logo' alt='logo' />
-        </a>
-        <div className='search'>
-          <i className='ri-search-line'></i>
-          <input type='text' placeholder='Search' />
+      <div className='nav-wrapper'>
+        <img src='img/logo.PNG' className='brand-img' alt='' />
+        <input type='text' className='search-box' placeholder='search' />
+        <div className='nav-items'>
+          <img src='img/home.PNG' className='icon' alt='' />
+          <img src='img/messenger.PNG' className='icon' alt='' />
+          <img src='img/add.PNG' className='icon' alt='' />
+          <img src='img/explore.PNG' className='icon' alt='' />
+          <img src='img/like.PNG' className='icon' alt='' />
+          <div className='icon user-profile'></div>
         </div>
-        <LoggedIn />
-        {/* <Guest /> */}
       </div>
     </nav>
   );
 };
-
-export default NavBar;

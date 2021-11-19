@@ -1,23 +1,25 @@
 import React from 'react';
-import { Layout } from 'antd';
 import { Switch, Route } from 'react-router-dom';
+import { GalleryABC } from '../../components/GalleryABC/GalleryABC';
+import { NavBar } from '../../components/NavBar/NavBar';
+import { Profile } from '../Profile/Profile';
+import { TestP } from '../../components/Test/TestP';
+import { Chat } from '../Chat/Chat';
 import { Home } from '../Home/Home';
-import SideBar from '../../components/SideBar/SideBar';
-import { Products } from '../../features/products/Products';
-import { PrivateRoute } from '../../components/PrivateRoute/PrivateRoute';
+import './AuthenticatedHome.css';
 
 export const AuthenticatedHome = () => {
   return (
     <>
-      <Layout>
-        <SideBar />
-        <Layout.Content className='layout-content'>
-          <Switch>
-            <Route exact path='/products' component={Products} />
-            <Route exact path='/' component={Home} />
-          </Switch>
-        </Layout.Content>
-      </Layout>
+      <NavBar />
+      <section className='main'>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/:username' component={Profile} />
+          <Route exact path='/inbox/:username' component={Chat} />
+          <Route exact path='/test/test' component={TestP} />
+        </Switch>
+      </section>
     </>
   );
 };
