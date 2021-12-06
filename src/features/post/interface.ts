@@ -26,7 +26,14 @@ export interface ProfilePostState {
   more: boolean;
 }
 
+export interface DetailPostState {
+  detailPost: Post;
+  loading: boolean;
+  error: string;
+}
+
 export interface GeneralPostState {
   feedPost: FeedPostState;
   profilePost: ProfilePostState;
+  detailPost: DetailPostState;
 }

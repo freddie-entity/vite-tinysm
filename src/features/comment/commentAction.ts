@@ -16,7 +16,7 @@ export const CreateComment = createAsyncThunk(
 );
 
 export const GetCommentByPostId = createAsyncThunk(
-  `${namespace}/comment/getcommentbypostid`,
+  `${namespace}/GetCommentByPostId`,
   async (post_id: string, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(

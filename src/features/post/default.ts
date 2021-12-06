@@ -5,6 +5,7 @@ import {
   FeedPostState,
   ProfilePostState,
   GeneralPostState,
+  DetailPostState,
 } from './interface';
 
 export const postDefault: Post = {
@@ -35,7 +36,14 @@ export const profilePostsDefault: ProfilePostState = {
   more: true,
 };
 
+export const detailPostDefault: DetailPostState = {
+  detailPost: postDefault,
+  loading: false,
+  error: '',
+};
+
 export const generalPostState: GeneralPostState = {
   feedPost: feedPostsDefault,
   profilePost: profilePostsDefault,
+  detailPost: detailPostDefault,
 };

@@ -7,6 +7,7 @@ import { TestP } from '../../components/Test/TestP';
 import { Chat } from '../Chat/Chat';
 import { Home } from '../Home/Home';
 import './AuthenticatedHome.css';
+import { DetailPost } from '../../components/DetailPost/DetailPost';
 
 export const AuthenticatedHome = () => {
   return (
@@ -18,6 +19,7 @@ export const AuthenticatedHome = () => {
           <Route exact path='/:username' component={Profile} />
           <Route exact path='/inbox/:username' component={Chat} />
           <Route exact path='/test/test' component={TestP} />
+          <Route exact path='/p/:post_id' component={DetailPost} />
         </Switch>
       </section>
     </>

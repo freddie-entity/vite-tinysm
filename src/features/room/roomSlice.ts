@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { generalRoomStateDefault, namespace } from './default';
 import { GeneralRoomState } from './inteface';
-import { GetRoomsByUsername } from './roomAction';
+import { GetRoomsByUsername, SendMessageInRoomChat } from './roomAction';
 
 const initialState: GeneralRoomState = generalRoomStateDefault;
 const roomSlice = createSlice({
-  initialState,
   name: `${namespace}`,
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(GetRoomsByUsername.pending, (state) => {

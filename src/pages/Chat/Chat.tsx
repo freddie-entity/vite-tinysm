@@ -11,12 +11,12 @@ export const Chat = () => {
   const userRoom = useAppSelector(selectUserRooms);
 
   useEffect(() => {
-    dispatch(GetRoomsByUsername(user.user.username));
+    dispatch(GetRoomsByUsername());
   }, [user.user.username]);
   return (
     <div className='chat-box'>
-      {userRoom.userRooms.map((ur) => (
-        <ChatItem userRoom={ur} />
+      {userRoom.userRooms.map((ur: any) => (
+        <ChatItem userRoom={ur} key={ur.id} />
       ))}
     </div>
   );

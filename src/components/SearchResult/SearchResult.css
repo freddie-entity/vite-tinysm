@@ -1,0 +1,81 @@
+.search-result-box {
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 3px 3px -2px, rgb(0 0 0 / 7%) 0px 3px 4px 0px,
+    rgb(0 0 0 / 6%) 0px 1px 4px 0px;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+}
+
+.search-result-box-wrapper {
+  max-height: 362px;
+  min-height: 100px;
+  overflow-y: auto;
+  width: 300px;
+}
+
+.search-result-box-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.search-result-box-wrapper .nb-item {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.search-card {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 6px;
+  padding: 10px;
+}
+
+.search-card .profile-pic {
+  flex: 0 0 auto;
+  padding: 0;
+  background: none;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.search-card:first-child .profile-pic {
+  width: 40px;
+  height: 40px;
+}
+
+.search-card .profile-pic img {
+  border: none;
+}
+
+.search-card .username {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+}
+
+.search-card .sub-text {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.search-card-skeleton {
+  width: 60%;
+  height: 150px;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+}

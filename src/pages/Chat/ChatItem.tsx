@@ -3,6 +3,8 @@ import { Room } from '../../features/room/inteface';
 import { Link } from 'react-router-dom';
 import './ChatItem.css';
 import { useAuth } from '../../components/PrivateRoute/useAuth';
+import { useAppDispatch } from '../../app/hooks';
+import { SendMessageInRoomChat } from '../../features/room/roomAction';
 
 interface Props {
   userRoom: Room;
@@ -14,23 +16,34 @@ export const ChatItem = ({ userRoom }: Props) => {
   const [icon, setIcon] = useState(false);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
+  const dispatch = useAppDispatch();
+
   const onMessageChange = (e: any) => {
     setMessage(e.target.value);
   };
+
   const onSubmitMessage = async (e: any) => {
-    ws.send(JSON.stringify({ content: message, from: user.user.username }));
+    const content = JSON.stringify({
+      content: message,
+      from: user.user.username,
+    });
+    const data = { data: content, stream: userRoom.id };
+    dispatch(SendMessageInRoomChat(data));
     setMessage('');
     e.preventDefault();
   };
 
-  const ws = new WebSocket(`ws://127.0.0.1:8000/chat/stream/${userRoom.id}`);
-  console.log(ws);
-
   useEffect(() => {
-    ws.onmessage = async (event) => {
-      setMessages((messages) => messages.concat(JSON.parse(event.data)));
-    };
+    const ws = new WebSocket(`ws://127.0.0.1:8000/chat/ws/${userRoom.id}`);
+
+    ws.onmessage = onMessage;
+    const interval = setInterval(() => ws.send('echo'), 1500);
+    return () => clearInterval(interval);
   }, []);
+  const onMessage = (ev: any) => {
+    const recv = JSON.parse(ev.data);
+    setMessages(recv.data);
+  };
   return (
     <Link to={`/inbox/${userRoom.id}`}>
       <div className='header' onClick={() => setToggle(!toggle)}>
@@ -46,27 +59,28 @@ export const ChatItem = ({ userRoom }: Props) => {
           <i className='fas fa-ellipsis-h'></i>
         </span>
       </div>
-      <div className={toggle ? 'chat-room' : 'd-none'} id='stream-messages'>
-        <div className='message message-left'>
-          <div className='avatar-wrapper avatar-small'>
-            <img
-              src='https://znews-photo.zadn.vn/w660/Uploaded/pnbcuhbatgunb/2020_03_23/i13863960814_1.jpg'
-              alt='avatar'
-              className='chat-img'
-            />
-          </div>
-          <div className='bubble bubble-light'>Hey anhat!</div>
-        </div>
+      <div className={toggle ? 'chat-room' : 'd-none'}>
         {messages.map((m: any) => (
-          <div className='message message-right'>
+          <div
+            className={`message message-${
+              m.payload.from === user.user.username ? 'right' : 'left'
+            }`}
+          >
             <div className='avatar-wrapper avatar-small'>
               <img
-                src='https://scontent-xsp1-1.xx.fbcdn.net/v/t1.0-9/s960x960/87853049_2481558942096235_8369025410146500608_o.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=0dU4W6nYBk0AX-ZHz-P&_nc_ht=scontent-xsp1-1.xx&_nc_tp=7&oh=20d12357dd09465c5ed2526555651580&oe=5EA2FF44'
+                src={'http://localhost:8000' + user.user.avatar}
                 alt='avatar'
                 className='chat-img'
               />
             </div>
-            <div className='bubble bubble-dark'>{m.payload.content}</div>
+
+            <div
+              className={`bubble bubble-${
+                m.payload.from === user.user.username ? 'dark' : 'light'
+              }`}
+            >
+              {m.payload.content}
+            </div>
           </div>
         ))}
       </div>
@@ -105,7 +119,12 @@ export const ChatItem = ({ userRoom }: Props) => {
             </span>
           </div>
         </span>
-        <button className='button-send' onClick={(e) => onSubmitMessage(e)}>
+        <button
+          className='button-send'
+          onClick={(e) => {
+            onSubmitMessage(e);
+          }}
+        >
           Send
         </button>
       </div>

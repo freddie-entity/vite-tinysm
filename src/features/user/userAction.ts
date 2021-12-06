@@ -22,11 +22,10 @@ export const UserLogin = createAsyncThunk(
 
 export const GetRecommendation = createAsyncThunk(
   `${namespace}/recommendation`,
-  async (_, { rejectWithValue, getState }) => {
+  async (username: string, { rejectWithValue, getState }) => {
     try {
-      const state = getState() as RootState;
       const { data } = await axios.get(
-        `${baseURL}/auth/recommendation?username=${state.user.authUser.user.username}`
+        `${baseURL}/auth/recommendation?username=${username}`
       );
       return data;
     } catch (error) {

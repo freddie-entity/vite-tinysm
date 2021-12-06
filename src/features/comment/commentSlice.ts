@@ -35,6 +35,7 @@ const commentSlice = createSlice({
       builder.addCase(
         GetCommentByPostId.fulfilled,
         (state, { payload }: PayloadAction<any>) => {
+          state.postComment.postComments = payload;
           state.postComment.loading = false;
         }
       ),

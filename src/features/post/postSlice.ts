@@ -1,14 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { generalPostState } from './default';
+import { generalPostState, namespace } from './default';
 import { GeneralPostState } from './interface';
-import { GetPosts, GetPostsByUsername } from './postAction';
+import { GetPostById, GetPosts, GetPostsByUsername } from './postAction';
 
 const initialState: GeneralPostState = generalPostState;
 
 const postSlice = createSlice({
+  name: `${namespace}`,
   initialState,
-  name: 'posts',
-  reducers: {},
+  reducers: {
+    AlterUserLikesPost(state, { payload: index }) {
+      state.feedPost.feedPosts[index].like_count =
+        state.feedPost.feedPosts[index].like_count + 1;
+    },
+    AlterUserCommentsPost(state, { payload: index }) {
+      state.feedPost.feedPosts[index].comment_count =
+        state.feedPost.feedPosts[index].comment_count + 1;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(GetPosts.pending, (state) => {
       state.feedPost.loading = true;
@@ -49,8 +58,25 @@ const postSlice = createSlice({
         state.profilePost.error = payload;
       }
     );
+    builder.addCase(GetPostById.pending, (state) => {
+      state.detailPost.loading = true;
+    });
+    builder.addCase(
+      GetPostById.fulfilled,
+      (state, { payload }: PayloadAction<any>) => {
+        state.detailPost.loading = false;
+        state.detailPost.detailPost = payload;
+      }
+    );
+    builder.addCase(
+      GetPostById.rejected,
+      (state, { payload }: PayloadAction<any>) => {
+        state.detailPost.loading = false;
+        state.detailPost.error = payload;
+      }
+    );
   },
 });
 
-export const {} = postSlice.actions;
+export const { AlterUserLikesPost, AlterUserCommentsPost } = postSlice.actions;
 export default postSlice.reducer;

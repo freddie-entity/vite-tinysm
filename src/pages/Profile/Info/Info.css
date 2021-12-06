@@ -82,3 +82,18 @@
 .profile-edit-btn {
   font-weight: 600;
 }
+
+.ant-skeleton-element .ant-skeleton-avatar.ant-skeleton-avatar-circle {
+  width: 150px;
+  height: 150px;
+  margin: 0 40px 0 40px;
+}
+
+.profile-bio-skeleton {
+  float: left;
+  width: 100%;
+}
+
+.ant-skeleton.ant-skeleton-active .ant-skeleton-button {
+  border-radius: 20px;
+}

@@ -4,10 +4,9 @@ import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { useAuth } from '../../../components/PrivateRoute/useAuth';
 import { GetPostsByUsername } from '../../../features/post/postAction';
 import { selectProfilePosts } from '../../../features/post/postSelector';
+import { GalleryItemSkeleton } from './GaleryItemSkeleton';
 import './Gallery.css';
 import { GalleryItem } from './GalleryItem/GalleryItem';
-import { ManyPictureIndicator } from './ManyPictureIndicator/ManyPictureIndicator';
-import { VideoIndicator } from './VideoIndicator/VideoIndicator';
 
 export const Gallery = () => {
   const [turn, setTurn] = useState(1);
@@ -26,9 +25,7 @@ export const Gallery = () => {
       dataLength={profilePost.profilePosts.length}
       next={turnIncrement}
       hasMore={profilePost.more}
-      loader={
-        <h4 style={{ textAlign: 'center', paddingTop: 20 }}>Loading...</h4>
-      }
+      loader={<GalleryItemSkeleton />}
       endMessage={
         <p style={{ textAlign: 'center', paddingTop: 20 }}>
           <b>You have reached the end!</b>
